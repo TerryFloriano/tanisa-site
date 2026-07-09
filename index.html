@@ -386,20 +386,24 @@
       </div>
     </div>
 
-    <form class="contact-form reveal" id="contact-form">
+    <form class="contact-form reveal" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="hidden-field">
+        <label>Ne pas remplir / Do not fill: <input name="bot-field" /></label>
+      </p>
       <div class="form-row">
         <div class="form-group">
           <label for="cf-name" data-i18n data-fr="Nom complet" data-en="Full name">Nom complet</label>
-          <input type="text" id="cf-name" required>
+          <input type="text" id="cf-name" name="name" required>
         </div>
         <div class="form-group">
           <label for="cf-email" data-i18n data-fr="Email" data-en="Email">Email</label>
-          <input type="email" id="cf-email" required>
+          <input type="email" id="cf-email" name="email" required>
         </div>
       </div>
       <div class="form-group">
         <label for="cf-service" data-i18n data-fr="Service concerné" data-en="Service of interest">Service concerné</label>
-        <select id="cf-service" data-i18n
+        <select id="cf-service" name="service" data-i18n
           data-fr='<option>MERL — Suivi, Évaluation, Recherche &amp; Apprentissage</option><option>Stratégie &amp; Architecture de Données</option><option>Analyse de Données &amp; Visualisation</option><option>Renforcement de Capacités &amp; Formation</option><option>Autre</option>'
           data-en='<option>MERL — Monitoring, Evaluation, Research &amp; Learning</option><option>Data Strategy &amp; Architecture</option><option>Data Analysis &amp; Visualization</option><option>Capacity Building &amp; Training</option><option>Other</option>'>
           <option>MERL — Suivi, Évaluation, Recherche &amp; Apprentissage</option>
@@ -411,14 +415,15 @@
       </div>
       <div class="form-group">
         <label for="cf-message" data-i18n data-fr="Votre message" data-en="Your message">Votre message</label>
-        <textarea id="cf-message" required></textarea>
+        <textarea id="cf-message" name="message" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center" data-i18n data-fr="Envoyer le message" data-en="Send message">Envoyer le message</button>
       <p class="form-note" data-i18n
-        data-fr="En cliquant sur envoyer, votre client mail s'ouvrira avec le message pré-rempli."
-        data-en="Clicking send will open your email client with the message pre-filled.">
-        En cliquant sur envoyer, votre client mail s'ouvrira avec le message pré-rempli.
+        data-fr="Votre message est envoyé directement, en toute sécurité."
+        data-en="Your message is sent directly and securely.">
+        Votre message est envoyé directement, en toute sécurité.
       </p>
+      <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
